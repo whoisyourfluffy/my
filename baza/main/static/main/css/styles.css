@@ -1,0 +1,167 @@
+{% load static %}
+
+
+
+
+
+
+
+
+/* Основной стиль */
+/* Общие стили для страницы */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Логотип */
+.logo img {
+    max-width: 80%; /* Ограничиваем размер логотипа */
+    max-height: 80px; /* Ограничиваем высоту логотипа */
+    object-fit: contain; /* Логотип не будет искажаться */
+}
+
+/* Стили для бокового меню */
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Скрываем меню слева */
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%); /* Градиент для фона */
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для меню */
+    transition: left 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+
+/* Когда меню открыто, сдвигаем его влево */
+.menu-container.open {
+    left: 0;
+    box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при открытии */
+}
+
+/* Стили для элементов меню */
+.menu a {
+    display: block;
+    padding: 20px;
+    color: #333; /* Темно-серый текст */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500; /* Немного жирнее шрифт для улучшения читаемости */
+    border-bottom: 1px solid #ddd; /* Легкая горизонтальная линия между элементами */
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+/* При наведении на ссылки */
+.menu a:hover {
+    background-color: #f0f0f0; /* Светлый фон при наведении */
+    padding-left: 30px; /* Немного смещаем ссылку для эффекта */
+}
+
+/* Стили для кнопки гамбургера */
+.menu-toggle {
+    font-size: 30px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1010; /* Делаем кнопку выше меню */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Эффект при наведении на кнопку гамбургер */
+.menu-toggle:hover {
+    transform: scale(1.1); /* Увеличиваем кнопку при наведении */
+}
+
+/* Когда меню открыто, кнопка гамбургер исчезает */
+.menu-container.open ~ .menu-toggle {
+    opacity: 0;
+}
+
+/* Стили для анимации при открытии меню */
+.menu-container.open .menu {
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-container.open .menu a {
+    padding-left: 30px;
+}
+
+/* Нижняя часть меню */
+.menu-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* Иконки социальных сетей */
+.menu-footer .icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Иконки Telegram */
+.menu-footer .telegram {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/6422/6422206.png');
+}
+
+/* Иконки WhatsApp */
+.menu-footer .whatsapp {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/6422/6422213.png');
+}
+
+/* Адаптивный размер иконок на маленьких экранах */
+.menu-footer .icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+}
+
+
+
+/* Body */
+
+
+/* Hero секция */
+.hero {
+    position: relative;
+    background-image: url("{% static 'main/img/mainglamping.jpg' %}"); /* Правильный синтаксис */
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.hero-title {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляет тень для лучшей видимости текста */
+    max-width: 600px;
+    margin: 0 auto;
+}
